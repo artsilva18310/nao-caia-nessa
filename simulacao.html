@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulação de Golpe</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #e5ddd5;
+    }
+
+    header {
+      background: #075e54;
+      color: white;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    header div {
+      margin-left: 10px;
+    }
+
+    .chat {
+      max-width: 500px;
+      margin: 20px auto;
+      background: #ece5dd;
+      padding: 15px;
+      border-radius: 10px;
+      min-height: 300px;
+    }
+
+    .msg {
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 10px;
+      max-width: 75%;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .recebida {
+      background: white;
+    }
+
+    .enviada {
+      background: #dcf8c6;
+      margin-left: auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .botoes {
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      margin: 10px;
+      background: #ff4d4d;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .resultado {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 18px;
+    }
+
+    .voltar {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #075e54;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  📱 João Silva
+  <div style="font-size: 12px;">online</div>
+</header>
+
+<div class="chat" id="chat"></div>
+
+<div class="botoes" id="botoes">
+  <div class="btn" onclick="resposta(true)">Eu enviaria</div>
+  <div class="btn" onclick="resposta(false)">Não enviaria</div>
+</div>
+
+<div id="resultado" class="resultado"></div>
+
+<a href="quiz.html" class="voltar">← Voltar</a>
+
+<script>
+
+const mensagens = [
+  { texto: "Oi, troquei de número", tipo: "recebida" },
+  { texto: "Salva esse aqui", tipo: "recebida" },
+  { texto: "Quem é?", tipo: "enviada" },
+  { texto: "Sou o João", tipo: "recebida" },
+  { texto: "Tô com um problema aqui 😔", tipo: "recebida" },
+  { texto: "Consegue me fazer um Pix rápido?", tipo: "recebida" }
+];
+
+let i = 0;
+
+function mostrarMensagem() {
+  if (i < mensagens.length) {
+    const chat = document.getElementById("chat");
+
+    const msg = document.createElement("div");
+    msg.classList.add("msg", mensagens[i].tipo);
+    msg.innerText = mensagens[i].texto;
+
+    chat.appendChild(msg);
+    chat.scrollTop = chat.scrollHeight;
+
+    i++;
+
+    setTimeout(mostrarMensagem, 1200);
+  } else {
+    document.getElementById("botoes").style.display = "block";
+  }
+}
+
+function resposta(escolha) {
+  const resultado = document.getElementById("resultado");
+
+  if (escolha) {
+    resultado.innerHTML = "❌ Isso era um golpe! Nunca envie dinheiro sem confirmar.";
+    resultado.style.color = "red";
+  } else {
+    resultado.innerHTML = "✅ Muito bem! Você evitou um golpe.";
+    resultado.style.color = "green";
+  }
+}
+
+mostrarMensagem();
+
+</script>
+
+</body>
+</html>

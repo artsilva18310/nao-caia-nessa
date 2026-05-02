@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Não Caia Nessa</title>
+
+    <!-- Fonte moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f7f9fc;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff4d4d, #ff1a1a);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .container {
+            margin-top: 20px;
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+
+            .container {
+                margin-top: 100px;
+            }
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 18px;
+            background: #ff4d4d;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e60000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #eee;
+            font-size: 14px;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 700;
+            color: #ff4d4d;
+            font-size: 18px;
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+        }
+
+        .links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        /* Hover moderno */
+        .links a::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: #ff4d4d;
+            left: 0;
+            bottom: -5px;
+            transition: 0.3s;
+        }
+
+        .links a:hover {
+            color: #ff4d4d;
+        }
+
+        .links a:hover::after {
+            width: 100%;
+        }
+
+        /* Página ativa */
+        .links a.ativo {
+            color: #ff4d4d;
+            font-weight: 600;
+        }
+
+        .links a.ativo::after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <nav class="menu">
+        <div class="logo">⚠️ Não Caia Nessa</div>
+        <div class="links">
+            <a href="index.html">Início</a>
+            <a href="golpes.html">Golpes</a>
+            <a href="protecao.html">Proteção</a>
+            <a href="quiz.html">Teste</a>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header>
+        <h1>⚠️ Não Caia Nessa</h1>
+        <p>Aprenda a identificar golpes e proteja seu dinheiro</p>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <div class="container">
+
+        <div class="cards">
+
+            <div class="card">
+                <h2>💬 Simulação real</h2>
+                <p>Veja como um golpista age em uma conversa.</p>
+                <a href="simulacao.html" class="btn">Ver simulação</a>
+            </div>
+
+            <div class="card">
+                <h2>⚠️ Golpes comuns</h2>
+                <p>Veja os golpes mais usados hoje.</p>
+                <a href="golpes.html" class="btn">Ver golpes</a>
+            </div>
+
+            <div class="card">
+                <h2>🧠 Como se proteger</h2>
+                <p>Dicas simples para evitar prejuízos.</p>
+                <a href="protecao.html" class="btn">Aprender</a>
+            </div>
+
+            <div class="card">
+                <h2>🧪 Teste interativo</h2>
+                <p>Descubra se você cairia em um golpe.</p>
+                <a href="quiz.html" class="btn">Fazer teste</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 - Projeto educativo contra golpes digitais
+    </footer>
+
+</body>
+
+</html>

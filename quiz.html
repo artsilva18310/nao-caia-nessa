@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste de Golpes</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f7f9fc;
+    }
+
+    header {
+      background: #6c63ff;
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .btn {
+      display: block;
+      margin-top: 15px;
+      padding: 12px;
+      text-align: center;
+      background: #6c63ff;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .explicacao {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background: #f1f3ff;
+    }
+
+    .next {
+      margin-top: 15px;
+      background: #00a86b;
+    }
+
+    .voltar {
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: #6c63ff;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🧪 Teste de Golpes</h1>
+  <p>Aprenda enquanto testa seus conhecimentos</p>
+</header>
+
+<div class="container">
+
+  <a href="index.html" class="voltar">← Voltar</a>
+
+  <div class="card">
+    <h2 id="pergunta"></h2>
+
+    <div id="botoes">
+      <div class="btn" onclick="responder(true)">É golpe</div>
+      <div class="btn" onclick="responder(false)">Não é golpe</div>
+    </div>
+
+    <div id="feedback"></div>
+  </div>
+
+</div>
+
+<script>
+
+const perguntas = [
+  {
+    texto: "Oi, troquei de número. Pode fazer um Pix urgente?",
+    correta: true,
+    explicacao: "Golpistas fingem ser conhecidos e usam urgência para pressionar você a enviar dinheiro sem pensar."
+  },
+  {
+    texto: "Seu banco pediu confirmação diretamente pelo aplicativo oficial.",
+    correta: false,
+    explicacao: "Bancos não pedem informações por mensagens suspeitas, mas apps oficiais são seguros."
+  },
+  {
+    texto: "Clique neste link para evitar bloqueio da sua conta.",
+    correta: true,
+    explicacao: "Links com urgência são comuns em golpes de phishing para roubar seus dados."
+  }
+];
+
+let atual = 0;
+let pontos = 0;
+
+function carregarPergunta() {
+  document.getElementById("pergunta").innerText = perguntas[atual].texto;
+  document.getElementById("feedback").innerHTML = "";
+  document.getElementById("botoes").style.display = "block";
+}
+
+function responder(escolha) {
+  const pergunta = perguntas[atual];
+  const feedback = document.getElementById("feedback");
+
+  document.getElementById("botoes").style.display = "none";
+
+  let resultado = "";
+
+  if (escolha === pergunta.correta) {
+    pontos++;
+    resultado = "✅ Correto!";
+  } else {
+    resultado = "❌ Errado!";
+  }
+
+  feedback.innerHTML = `
+    <p><strong>${resultado}</strong></p>
+    <div class="explicacao">${pergunta.explicacao}</div>
+    <div class="btn next" onclick="proxima()">Próxima pergunta</div>
+  `;
+}
+
+function proxima() {
+  atual++;
+
+  if (atual < perguntas.length) {
+    carregarPergunta();
+  } else {
+    mostrarResultadoFinal();
+  }
+}
+
+function mostrarResultadoFinal() {
+  const card = document.querySelector(".card");
+
+  card.innerHTML = `
+    <h2>Resultado final</h2>
+    <p>Você acertou ${pontos} de ${perguntas.length}</p>
+    <p>${mensagemFinal()}</p>
+    <div class="btn" onclick="reiniciar()">Refazer teste</div>
+  `;
+}
+
+function mensagemFinal() {
+  if (pontos === perguntas.length) {
+    return "🟢 Excelente! Você está muito bem preparado.";
+  } else if (pontos >= 2) {
+    return "🟡 Bom, mas ainda pode melhorar.";
+  } else {
+    return "🔴 Cuidado! Você pode cair em golpes.";
+  }
+}
+
+function reiniciar() {
+  atual = 0;
+  pontos = 0;
+  location.reload();
+}
+
+carregarPergunta();
+
+</script>
+
+</body>
+</html>

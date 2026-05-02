@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Golpes Comuns</title>
+
+    <!-- Fonte -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: 700;
+  color: #ff4d4d;
+  font-size: 18px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+}
+
+.links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* Hover bonito */
+.links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #ff4d4d;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.links a:hover {
+  color: #ff4d4d;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+/* Página ativa */
+.links a.ativo {
+  color: #ff4d4d;
+  font-weight: 600;
+}
+
+.links a.ativo::after {
+  width: 100%;
+}
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f7f9fc;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff4d4d, #ff1a1a);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 20px;
+             margin-top: 100px;
+        }
+
+        .voltar {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #ff4d4d;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 16px;
+            background: #ff4d4d;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+       .btn:hover {
+  background: #e60000;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .links {
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  .links a {
+    margin: 5px 10px 0 0;
+  }
+}
+         
+    </style>
+</head>
+
+<body>
+    <nav class="menu">
+  <div class="logo">⚠️ Não Caia Nessa</div>
+  <div class="links">
+    <a href="index.html">Início</a>
+    <a href="golpes.html" class="ativo">Golpes</a>
+    <a href="protecao.html">Proteção</a>
+    <a href="quiz.html">Teste</a>
+  </div>
+</nav>
+
+    <header>
+
+        <h1>⚠️ Golpes Mais Comuns</h1>
+        <p>Fique atento aos golpes mais usados</p>
+    </header>
+
+    <div class="container">
+
+        <a href="index.html" class="voltar">← Voltar</a>
+        <div class="grid">
+
+            <div class="card">
+                <h2>📱 Golpe do WhatsApp</h2>
+                <p>Criminosos se passam por conhecidos para pedir dinheiro.</p>
+                <a href="golpe-whatsapp.html" class="btn">Ver detalhes</a>
+            </div>
+
+            <div class="card">
+                <h2>💸 Golpe do Pix</h2>
+                <p>Transferências falsas ou pedidos urgentes de dinheiro.</p>
+                <a href="golpe-pix.html" class="btn">Ver detalhes</a>
+            </div>
+
+            <div class="card">
+                <h2>📄 Boleto falso</h2>
+                <p>Pagamentos desviados para contas de golpistas.</p>
+                <a href="golpe-boleto.html" class="btn">Ver detalhes</a>
+            </div>
+
+            <div class="card">
+                <h2>💻 Falso suporte</h2>
+                <p>Golpistas fingem ser técnicos para acessar seu computador.</p>
+                <a href="#" class="btn">Ver detalhes</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
